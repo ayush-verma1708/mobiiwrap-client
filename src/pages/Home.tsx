@@ -14,14 +14,14 @@ export function Home() {
     <div className="space-y-20">
       {/* Hero Section */}
       <motion.section 
-        className="relative h-[80vh] bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center"
+        className="relative w-full h-[80vh] bg-gradient-to-r from-purple-400 via-yellow-500 to-purple-600 flex items-center justify-center px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80"
+            // src="public/Mobiiwrap_images/mobii_1.jpg"
             alt="Hero background" 
             className="w-full h-full object-cover mix-blend-overlay"
           />

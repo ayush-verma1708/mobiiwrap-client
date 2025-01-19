@@ -29,7 +29,7 @@ export const products: Product[] = [
       Warranty: '30-day guarantee'
     },
     colors: ['Carbon Black', 'Matte White', 'Navy Blue', 'Red'],
-    category: 'iPhone'
+    category: 'Leather'
   },
   {
     id: '2',
@@ -56,7 +56,7 @@ export const products: Product[] = [
       Warranty: '30-day guarantee'
     },
     colors: ['White Marble', 'Black Marble', 'Grey Marble'],
-    category: 'Samsung'
+    category: 'Embossed'
   },
   {
     id: '3',
@@ -83,7 +83,7 @@ export const products: Product[] = [
       Warranty: '30-day guarantee'
     },
     colors: ['Light Oak', 'Dark Walnut', 'Cherry'],
-    category: 'Pixel'
+    category: 'Art'
   },
   // Add more products as needed
 ];

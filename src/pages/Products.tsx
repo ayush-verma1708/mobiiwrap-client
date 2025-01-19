@@ -5,7 +5,7 @@ import {products} from '../samples/SampleProd.tsx';
 import { ProductTile } from '../components/product Components/productTile.tsx'; // Assume you have a products data file.
 
 // Sample product data
-const categories = ['All', 'iPhone', 'Samsung', 'Pixel', 'OnePlus'];
+const categories = ['All', 'Leather', 'Embossed', 'Art'];
 const sortOptions = ['Newest', 'Price: Low to High', 'Price: High to Low', 'Most Popular'];
 
 export function Products() {
