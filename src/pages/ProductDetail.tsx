@@ -14,45 +14,28 @@ import {
   Shield
 } from 'lucide-react';
 import { clsx } from 'clsx';
+import { products } from '../samples/SampleProd'; // Updated import (no .tsx extension)
 
-// Mock product data - in a real app, this would come from an API
-const product = {
-  id: '1',
-  name: 'Carbon Fiber iPhone 15 Pro Skin',
-  price: 29.99,
-  rating: 4.8,
-  reviews: 128,
-  description: 'Premium carbon fiber textured skin providing ultimate protection and style for your iPhone 15 Pro. Precision-cut for a perfect fit.',
-  images: [
-    'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1581993192008-63e896f4f744?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1587856635640-3912f17d5fcd?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1581993192008-63e896f4f744?auto=format&fit=crop&q=80'
-  ],
-  features: [
-    'Precision-cut design',
-    'Bubble-free application',
-    'Ultra-thin profile',
-    'Scratch protection',
-    'Textured grip'
-  ],
-  specifications: {
-    Material: 'Premium 3M vinyl',
-    Thickness: '0.2mm',
-    Finish: 'Matte',
-    Installation: 'Wet or dry application',
-    Warranty: '30-day guarantee'
-  },
-  colors: ['Carbon Black', 'Matte White', 'Navy Blue', 'Red']
-};
-
-export function ProductDetail() {
+export function ProductsDetail() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const [selectedColor, setSelectedColor] = useState('');
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
   const [showAddedNotification, setShowAddedNotification] = useState(false);
-  const { id } = useParams();
+  const { id } = useParams(); // Get the product ID from the URL
+
+  // Find the product by ID from the products array
+  const product = products.find((product) => product.id === id);
+
+  // If the product is not found, you can display an error or return early
+  if (!product) {
+    return <div>Product not found!</div>;
+  }
+
+  // Set default color as the first color in the product's colors array
+  if (!selectedColor) {
+    setSelectedColor(product.colors[0]);
+  }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isZoomed) return;

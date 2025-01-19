@@ -1,6 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Truck, RefreshCw, Shield } from 'lucide-react';
+import {products} from '../samples/SampleProd.tsx'; 
+import { ProductTile } from '../components/product Components/productTile.tsx'; // Assume you have a products data file.
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -85,8 +86,8 @@ export function Home() {
         </motion.div>
       </section>
 
-      {/* Featured Products */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    {/* Featured Products */}
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.h2 
           className="text-3xl font-bold text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -102,23 +103,22 @@ export function Home() {
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.2 }}
         >
-          {/* Product cards would be mapped here */}
-          {[1, 2, 3].map((i) => (
+          {/* Mapping over sampleProducts to render product cards */}
+          {products.map((product) => (
             <motion.div
-              key={i}
+              key={product.id}
               className="bg-white rounded-lg shadow-lg overflow-hidden"
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -8 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
             >
-              <img 
-                src={`https://images.unsplash.com/photo-156${i}484033936-6b7f63b47f5?auto=format&fit=crop&q=80`}
-                alt={`Featured product ${i}`}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Premium Skin Design {i}</h3>
-                <p className="text-gray-600 mb-4">High-quality mobile skin with precision cut</p>
-                <p className="text-xl font-bold text-indigo-600">$29.99</p>
-              </div>
+            
+              <ProductTile
+        id={product.id}
+        name={product.name}
+        price={product.price}
+        image={product.images[0]} // Assuming the first image is what you want to display
+      />
             </motion.div>
           ))}
         </motion.div>
