@@ -1,44 +1,10 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
-import type { Product } from '../types';
+import {products} from '../samples/SampleProd.tsx'; 
 import { ProductTile } from '../components/product Components/productTile.tsx'; // Assume you have a products data file.
 
 // Sample product data
-const products: Product[] = [
-  {
-    id: '1',
-    name: 'Carbon Fiber iPhone Skin',
-    price: 29.99,
-    description: 'Premium carbon fiber texture skin for iPhone',
-    images: ['https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&q=80'],
-    category: 'iPhone',
-    rating: 4.5,
-    reviews: 128
-  },
-  {
-    id: '2',
-    name: 'Marble Samsung Skin',
-    price: 24.99,
-    description: 'Elegant marble design skin for Samsung phones',
-    images: ['https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&q=80'],
-    category: 'Samsung',
-    rating: 4.8,
-    reviews: 95
-  },
-  {
-    id: '3',
-    name: 'Wood Grain Pixel Skin',
-    price: 27.99,
-    description: 'Natural wood grain texture for Google Pixel',
-    images: ['https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&q=80'],
-    category: 'Pixel',
-    rating: 4.3,
-    reviews: 67
-  },
-  // Add more products as needed
-];
-
 const categories = ['All', 'iPhone', 'Samsung', 'Pixel', 'OnePlus'];
 const sortOptions = ['Newest', 'Price: Low to High', 'Price: High to Low', 'Most Popular'];
 
@@ -182,7 +148,7 @@ export function Products() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <div className="relative pb-[100%]">
+              {/* <div className="relative pb-[100%]">
                 <img
                   src={product.images[0]}
                   alt={product.name}
@@ -203,7 +169,13 @@ export function Products() {
                     Add to Cart
                   </motion.button>
                 </div>
-              </div>
+              </div> */}
+              <ProductTile
+        id={product.id}
+        name={product.name}
+        price={product.price}
+        image={product.images[0]} // Assuming the first image is what you want to display
+      />
             </motion.div>
           ))}
         </motion.div>
